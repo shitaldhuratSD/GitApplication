@@ -9,6 +9,7 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,7 +21,7 @@ import com.dev.gitclone.GitApplication.dto.Status;
 import com.dev.gitclone.GitApplication.dto.User;
 
 @RestController
-//@RequestMapping(path="/gitapp")
+@RequestMapping(path="/gitapplication")
 public class UserController {
 	 @Autowired
 	    UserRepository userRepository;
@@ -70,12 +71,13 @@ public class UserController {
 	        return Status.SUCCESS;
 	    }
 	    
-//	    @DeleteMapping("/users/delete")
-//	    public Status deleteUser() {
-//	    	userRepository.deleteById(id);
-//	        return Status.SUCCESS;
-//	    }
 	    
+	    @DeleteMapping("/users/delete/{id}")  
+	    private Status deleteUserById(@PathVariable("id") int id)   
+	    {  
+	    	userRepository.deleteById(id);  
+	    return Status.SUCCESS;
+	    } 
 	   
 	    
 	    @GetMapping(path="/users/all")
