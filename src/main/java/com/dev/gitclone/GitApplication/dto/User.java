@@ -1,5 +1,6 @@
 package com.dev.gitclone.GitApplication.dto;
 
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -23,6 +24,12 @@ public class User {
 	    private  String email;
 	    private  String mobileNum;
 	    private  boolean loggedIn;
+	    
+	    private String token;
+	    
+		//@Column(columnDefinition = "TIMESTAMP")
+		private LocalDateTime tokenCreationDate;
+	    
 	    public User() {
 	    }
 	    public User(String username, 
@@ -65,6 +72,19 @@ public class User {
 		public void setMobileNum(String mobileNum) {
 			this.mobileNum = mobileNum;
 		}
+		
+		public String getToken() {
+			return token;
+		}
+		public void setToken(String token) {
+			this.token = token;
+		}
+		public LocalDateTime getTokenCreationDate() {
+			return tokenCreationDate;
+		}
+		public void setTokenCreationDate(LocalDateTime tokenCreationDate) {
+			this.tokenCreationDate = tokenCreationDate;
+		}
 		@Override
 	    public boolean equals(Object o) {
 	        if (this == o) return true;
@@ -73,6 +93,7 @@ public class User {
 	        return Objects.equals(username, user.username) &&
 	                Objects.equals(password, user.password);
 	    }
+		
 	    @Override
 	    public int hashCode() {
 	        return Objects.hash(id, username, password, 
@@ -81,7 +102,9 @@ public class User {
 		@Override
 		public String toString() {
 			return "User [id=" + id + ", username=" + username + ", password=" + password + ", email=" + email
-					+ ", mobileNum=" + mobileNum + ", loggedIn=" + loggedIn + "]";
+					+ ", mobileNum=" + mobileNum + ", loggedIn=" + loggedIn + ", token=" + token
+					+ ", tokenCreationDate=" + tokenCreationDate + "]";
 		}
+	    
 	   
 	}

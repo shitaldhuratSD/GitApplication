@@ -12,10 +12,9 @@ import com.dev.gitclone.GitApplication.dto.User;
 @Repository
 public interface UserRepository extends JpaRepository<User, Integer>{
 	
-//	@Modifying
-//	@Query("delete from users u where u.id in ?1")
-//	void deleteUsersWithId(List<Integer> ids);
-	
-//	void deleteByIdIn(Integer id);
+
+	User findByEmail(String email);
+
+	User findByToken(String token);
 
 }

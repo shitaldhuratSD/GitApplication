@@ -1,7 +1,7 @@
 package com.dev.gitclone.GitApplication.dto;
 
 public enum Status {
-	 SUCCESS,
+	    SUCCESS,
 	    USER_ALREADY_EXISTS,
 	    FAILURE
 
