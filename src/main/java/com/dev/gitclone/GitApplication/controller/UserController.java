@@ -1,10 +1,8 @@
 package com.dev.gitclone.GitApplication.controller;
 
-import java.util.Arrays;
+
 import java.util.List;
 import java.util.Optional;
-
-import javax.transaction.Transactional;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +15,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.dev.gitclone.GitApplication.Repository.UserRepository;
@@ -36,6 +33,7 @@ public class UserController {
 	 @Autowired
 	    UserRepository userRepository;
 	 
+
 	    @PostMapping("/users/register")
 	    public Status registerUser(@Valid @RequestBody User newUser) {
 	        List<User> users = userRepository.findAll();
@@ -120,6 +118,8 @@ public class UserController {
 
 			return userService.resetPassword(token, password);
 		}
+		
+		
 	   
 
 }
